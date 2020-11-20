@@ -44,45 +44,18 @@ const DetailRouteInfo = ({anonymous}) => {
                     </div>
                     <div className="table-body">
                     <Fragment>
-                        <div className="table-num" style={{width: 200}}>1100</div>
+                        {/* <div className="table-num" style={{width: 200}}>{item.get('')}</div> */}
+                        <div className="table-num" style={{width: 200}}>3000</div>
                         <div className="table-time" style={{width: 240, borderRight:0}}>전</div>
                      </Fragment>    
-                     <Fragment>
-                        <div className="table-num" style={{width: 200}}>3000</div>
-                        <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
-                     </Fragment>   
-                     <Fragment>
-                        <div className="table-num" style={{width: 200}}>3000</div>
-                        <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
-                     </Fragment>  
-                     <Fragment>
-                        <div className="table-num" style={{width: 200}}>3000</div>
-                        <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
-                     </Fragment>  
-                     <Fragment>
-                        <div className="table-num" style={{width: 200}}>3000</div>
-                        <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
-                     </Fragment>  
-                     <Fragment>
-                        <div className="table-num" style={{width: 200}}>3000</div>
-                        <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
-                     </Fragment>  
-                     <Fragment>
-                        <div className="table-num" style={{width: 200}}>3000</div>
-                        <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
-                     </Fragment>    
-                     <Fragment>
-                        <div className="table-num" style={{width: 200}}>3000</div>
-                        <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
-                     </Fragment>  
-                     <Fragment>
+                     {/*<Fragment>
                         <div className="table-num" style={{width: 200}}>3000</div>
                         <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
                      </Fragment>  
                      <Fragment>
                         <div className="table-num" style={{width: 200}}>23</div>
                         <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
-                     </Fragment>
+                     </Fragment>*/}
                     </div>
                 </Scroller>
             </div>

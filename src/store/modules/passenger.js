@@ -21,6 +21,7 @@ const RESERVE_STATION = 'passenger/RESERVE_STATION';
 
 const GET_BUS_ROUTE_STATION_LIST ='passenger/GET_BUS_ROUTE_STATION_LIST';
 const GET_BUS_ROUTE_INFO_ITEM = 'passenger/GET_BUS_ROUTE_INFO_ITEM';
+const GET_DETAIL_BUS_ROUTE_INFO='passenger/GET_DETAIL_BUS_ROUTE_INFO';
 
 /*--------create action--------*/
 export const input = createAction(INPUT);
@@ -39,6 +40,7 @@ export const reserveStation = createAction(RESERVE_STATION);
 
 export const getBusRouteStationList = createAction(GET_BUS_ROUTE_STATION_LIST,PassengerApi.getBusRouteStationList);
 export const getBusRouteInfoItem = createAction(GET_BUS_ROUTE_INFO_ITEM,PassengerApi.getBusRouteInfoItem);
+export const getDetailBusRouteInfo = createAction(GET_DETAIL_BUS_ROUTE_INFO,PassengerApi.getDetailBusRouteInfo);
 
 /*--------state definition--------*/
 const initialState = Map({
@@ -53,6 +55,7 @@ const initialState = Map({
     //     stationSeq:''
     // })
     ,
+    routeLength:'',
     input:'',  
     driverInfo : Map({
         vehicle_num:'', 
@@ -121,11 +124,12 @@ export default handleActions({
     }),
     ...pender({
         type: GET_BUS_ROUTE_STATION_LIST,
-        
         onSuccess: (state, action) => {
             const data = action.payload.data.data.response.msgBody;
-            return state.set('busRouteStationList', List(data.busRouteStationList.map((item)=>Map(
-                    {stationName : item.stationName._text}
+            return state.set('busRouteStationList', List(data.busRouteStationList.map((item)=>Map({
+                    stationName : item.stationName._text,
+                    x : item.x._text,
+                    y : item.y._text},
                     // districtCd : item.districtCd,
                     // regionName : item.regionName,
                     // stationId : item.stationId,
@@ -133,6 +137,7 @@ export default handleActions({
                     // x : item.x,
                     // y : item.y,
                     // stationSeq : item.stationSeq
+                    
                 ))));
         },
     }),
@@ -151,6 +156,25 @@ export default handleActions({
                 peekAlloc :data.busRouteInfoItem.peekAlloc._text,
                 nPeekAlloc :data.busRouteInfoItem.nPeekAlloc._text
             }));
+        },
+    }),
+    ...pender({
+        type: GET_DETAIL_BUS_ROUTE_INFO,
+        
+        onSuccess: (state, action) => {
+            const data = action.payload.data.data.response.msgBody;
+            return state.set('busRouteStationList', List(data.busRouteStationList.map((item)=>Map({
+                    stationName : item.stationName._text,
+                    x : item.x._text,
+                    y : item.y._text}
+                    // districtCd : item.districtCd,
+                    // regionName : item.regionName,
+                    // stationId : item.stationId,
+                    // stationName : item.stationName,
+                    // x : item.x,
+                    // y : item.y,
+                    // stationSeq : item.stationSeq
+                ))));
         },
     }),
 }, initialState);

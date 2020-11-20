@@ -87,8 +87,13 @@ ol {
     padding: 0;
     
 }
+a {
+    text-decoration: none;
+    color: black;
+}
 li {
     list-style: none; 
+    text-decoration: none;
     display: list-item;
     display: flex;
     flex-direction: row;
@@ -99,6 +104,9 @@ li {
     background-color: white;
     border: 1px solid #eee;
     text-align: -webkit-match-parent;
+}
+li:hover {
+    background-color: rgb(241, 241, 241);
 }
 .route-line #line {
     width: 3px;

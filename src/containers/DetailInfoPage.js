@@ -17,16 +17,21 @@ class DetailInfoPage extends Component {
     }
 
     componentDidMount() {
+        const { passengerActions} = this.props;
+        const routeId =200000279;
+        const stationName ='능실마을21단지.수원여대입구';
+        passengerActions.getDetailBusRouteInfo(routeId,stationName);
     }
 
     render() {
         const {
             select, 
+            busRouteStationList
         } = this.props;
 
         return (
             <Fragment>
-                <DetailRouteInfo />
+                <DetailRouteInfo busRouteStationList={busRouteStationList}/>
                 <FooterBox select={select} fbSelect={this._fbSelect}/>
             </Fragment>
         )
@@ -39,10 +44,13 @@ export default withRouter(
         // props 로 넣어줄 스토어 상태값
         state => ({
             select: state.basic.getIn(['basic', 'select']),
+            busRouteStationList: state.passenger.get('busRouteStationList'),
         }),
         // props 로 넣어줄 액션 생성함수
         dispatch => ({
             basicActions: bindActionCreators(basicActions, dispatch),
+            passengerActions: bindActionCreators(passengerActions, dispatch)
+
         })
     )(DetailInfoPage)
 )

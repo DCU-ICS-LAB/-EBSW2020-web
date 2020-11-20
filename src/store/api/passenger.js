@@ -18,7 +18,6 @@ export const getBusRouteStationList = (routeId) => {
             return res;
         })
 }
-
 //특정 정류장 정보 조회
 export const getDetailBusRouteInfo = (stationId,stationName) => {
     
@@ -29,6 +28,7 @@ export const getDetailBusRouteInfo = (stationId,stationName) => {
         .then(res => {
             console.log(`detail bus route info api call`);
             console.log(res);
+            console.log(stationName);
             return res;
         })
 }
