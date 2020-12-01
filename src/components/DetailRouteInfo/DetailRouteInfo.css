@@ -31,8 +31,12 @@ html, body {
 
 .DetailRouteInfo .left h1 {
     text-align: center;
-    margin: 5PX 0;
+    padding: 15px 0;
     font-size: 25px;
+    background-color: #c7d1b7;
+    margin: 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
 }
 .table-thead{
     z-index: 9999;
@@ -40,8 +44,8 @@ html, body {
     top: 0;
     left: 0;
     right: 0;
-    font-size: 14.5px;
-    height:31px;
+    font-size: 16px;
+    height : 31px;
     white-space: nowrap;
     width: 435px;
 }
@@ -59,7 +63,7 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    font-size: 14px;
+    font-size: 16px;
     /* white-space: nowrap; */
 }
 .table-body > div{
@@ -76,7 +80,7 @@ html, body {
 }
 .DetailRouteInfo .content {
     width: 445px;
-    height: 295px;
+    height: 280px;
     padding: 5px;
     margin: 5px;
     background-color: #E2EECE;

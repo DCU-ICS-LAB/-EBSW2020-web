@@ -3,6 +3,7 @@ import './BusInfo.css';
 import driver_picture from 'resources/driver_picture.png'
 import {FaStar} from 'react-icons/fa';
 import Button from '@enact/moonstone/Button';
+import Popup from '@enact/moonstone/Popup';
 
 const BusInfo = ({
     driver_name,
@@ -77,6 +78,16 @@ const BusInfo = ({
                             >
                                 평가하기
                             </Button>
+                            {/* <div>
+                            <Popup onClose={anonymous} onHide={anonymous} onShow={anonymous}>
+                            <div>
+                            Hello Popup
+                            </div>
+                            </Popup>
+                            <BodyText centered>
+                            Use KNOBS to interact with Popup.
+                            </BodyText>
+                            </div> */}
                         </div>
                         </div>
                     </div>

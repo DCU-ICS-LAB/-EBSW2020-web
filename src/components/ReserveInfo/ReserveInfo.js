@@ -8,23 +8,7 @@ import {
     ReserveBtn
   } from "components";
 
-const ReserveInfo = ({color,busRouteStationList,anonymous,station,onChange,station1,station2,station3,station4,station5,station6,onClick,leaveStation,arriveTime}) => {
-    const stations = [ station1,  station2 , station3, station4, station5, station6 ]  
-    const stationList = stations.map(
-        (sta,idx) => (
-                <label key={idx}>
-                
-                <span>{sta}</span>
-                <input
-                type="radio"
-                name={sta}
-                value={sta}
-                checked={station === sta}
-                onChange={onChange}
-                />
-            </label>
-        )
-    )
+const ReserveInfo = ({color,busRouteStationList,anonymous,station,onChange,onClick,leaveStation,arriveTime}) => {
 
     return (
         <div className="ReserveInfo">
@@ -49,6 +33,7 @@ const ReserveInfo = ({color,busRouteStationList,anonymous,station,onChange,stati
                                             onChange={onChange}
                                             />
                         </label>
+                        
                                                 )
                             })
                         }

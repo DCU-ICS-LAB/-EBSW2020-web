@@ -18,24 +18,26 @@ import React, { Component, Fragment } from 'react';
     var map = null;
     var markers = [];
     var linePath=[];
+
     class RouteMapPage extends Component {
         _fbSelect = (idx) => {
             const { basicActions } = this.props;
             basicActions.fbSelect(idx);
         }
         _createBusRoute= (info,map,isTarget) =>{
-            
                 info.map((item,idx)=>{
                     const longitude = item.get('x');
                     const latitude = item.get('y');
-    
+                    const stationName = item.get('stationName');
+
                     linePath.push(
                         this._createMark({
                             longitude: longitude,
                             latitude: latitude,
                             idx: idx,
                             map: map,
-                            isTarget: isTarget
+                            isTarget: isTarget,
+                            stationName : stationName
                         })
                     )
                 })
@@ -44,24 +46,44 @@ import React, { Component, Fragment } from 'react';
                     map: map,
                     isTarget: isTarget
                 })
+                var mapTypeControl = new kakao.maps.MapTypeControl();
+
+                // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+                // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+                map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+                // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+                var zoomControl = new kakao.maps.ZoomControl();
+                map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
         }
-        _createMark = ({latitude,longitude, idx, map})=>{
+
+        _createMark = ({latitude,longitude, idx, map,stationName})=>{
     
             const pos = new kakao.maps.LatLng(latitude, longitude)
     
             var marker = new kakao.maps.Marker({
                 position: pos, // 마커의 위치
+                clickable: true
             })
     
             marker.setMap(map);
-             kakao.maps.event.addListener(marker, 'click', function() {
-                
+            
+            markers.push(marker);
+
+            var iwContent  = '<div style="padding:5px;">'+stationName+'</div>',
+             iwRemoveable = true; 
+
+                var infowindow = new kakao.maps.InfoWindow({
+                    content: iwContent,
+                    removable : iwRemoveable
+                });
+                // 마커에 클릭이벤트를 등록합니다
+            kakao.maps.event.addListener(marker, 'click', function() {// 마커 위에 인포윈도우를 표시합니다
+                infowindow.open(map, marker);  
             });
-            marker.setMap(map);
             
-            markers.push(marker) 
-            
-            return pos
+
+            return pos;
     } 
         _createLine = ({linePath,map}) => {
             if(linePath.size<=1) return
@@ -75,6 +97,7 @@ import React, { Component, Fragment } from 'react';
             });
     
                 polyline.setMap(map);
+                
         }
         
         componentDidMount() {
@@ -100,15 +123,13 @@ import React, { Component, Fragment } from 'react';
         render() {
             const {
                 select,
-                busRouteStationList,
-                firstName
+                busRouteStationList
             } = this.props;
             return (
                 
                
                 <Fragment>
                     <RouteMap busRouteStationList={busRouteStationList}
-                    
                     firstName={busRouteStationList.getIn([linePath.length-1,'stationName'])}
                     // map={this._createBusRoute}
                     />

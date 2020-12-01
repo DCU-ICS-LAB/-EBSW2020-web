@@ -71,7 +71,15 @@ const initialState = Map({
         peekAlloc : '',
         nPeekAlloc :''
     }),
+    busArrivalList : List([]),
+    // Map({
+    //     predictTime1 :'',
+    //     predictTime2 :'',
+    //     plateNo1:'',
+    //     plateNo2:'',
+    //     routeId :'',
 
+    // }),
     register:true,
     rating:null,
     isSelected : false,
@@ -160,20 +168,14 @@ export default handleActions({
     }),
     ...pender({
         type: GET_DETAIL_BUS_ROUTE_INFO,
-        
         onSuccess: (state, action) => {
             const data = action.payload.data.data.response.msgBody;
-            return state.set('busRouteStationList', List(data.busRouteStationList.map((item)=>Map({
-                    stationName : item.stationName._text,
-                    x : item.x._text,
-                    y : item.y._text}
-                    // districtCd : item.districtCd,
-                    // regionName : item.regionName,
-                    // stationId : item.stationId,
-                    // stationName : item.stationName,
-                    // x : item.x,
-                    // y : item.y,
-                    // stationSeq : item.stationSeq
+            return state.set('busArrivalList', List(data.busArrivalList.map((item)=>Map({
+                plateNo1 : item.plateNo1._text,
+                plateNo2 : item.plateNo2._text,
+                predictTime1 : item.predictTime1._text,
+                predictTime2 : item.predictTime2._text,
+                },
                 ))));
         },
     }),

@@ -16,30 +16,29 @@ class DetailInfoPage extends Component {
     }
     
     componentDidMount() {
-        const { passengerActions,match} = this.props;
+        const { passengerActions} = this.props;
         // const { passengerActions,match,routeId,stationName} = this.props;
-        const stationId =200001483;
-        const stationName = match.params.stationName;
-        const long = match.params.x;
-        const lat = match.params.y;
-        passengerActions.getDetailBusRouteInfo(stationId,stationName,long,lat);
-        
+        const stationId =277104476;
+        passengerActions.getDetailBusRouteInfo(stationId);
     }
 
     render() {
         const {
             select, 
             busRouteStationList,
-            stationName,
+            busArrivalList,
             match
         } = this.props;
+
         console.log(match.params.stationName)
         const long = match.params.x;
         const lat = match.params.y;
         const name = match.params.stationName;
+
         return (
             <Fragment>
                 <DetailRouteInfo busRouteStationList={busRouteStationList}
+                busArrivalList={busArrivalList}
                 stationName={name}
                 long={long}
                 lat ={lat}/>
@@ -56,6 +55,7 @@ export default withRouter(
         state => ({
             select: state.basic.getIn(['basic', 'select']),
             busRouteStationList: state.passenger.get('busRouteStationList'),
+            busArrivalList: state.passenger.get('busArrivalList'),
         }),
         // props 로 넣어줄 액션 생성함수
         dispatch => ({
