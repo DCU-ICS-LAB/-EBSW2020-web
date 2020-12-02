@@ -4,7 +4,6 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import * as passengerActions from 'store/modules/passenger';
 import * as basicActions from 'store/modules/basic';
-import Popup from '@enact/moonstone/Popup';
 import {
     BusInfo,
     FooterBox

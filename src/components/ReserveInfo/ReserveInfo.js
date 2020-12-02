@@ -8,7 +8,7 @@ import {
     ReserveBtn
   } from "components";
 
-const ReserveInfo = ({style,busRouteStationList,anonymous,station,onChange,onClick,leaveStation,arriveTime}) => {
+const ReserveInfo = ({context,busRouteStationList,anonymous,station,onChange,onClick,leaveStation,arriveTime}) => {
 
     return (
         <div className="ReserveInfo">
@@ -42,7 +42,7 @@ const ReserveInfo = ({style,busRouteStationList,anonymous,station,onChange,onCli
                             <h1>{station}</h1>
                             <span><p>남은 정류장 : {leaveStation}</p></span>
                             <span><p>도착 예정 시간 : {arriveTime}</p></span>
-                            <ReserveBtn onClick={onClick} context='하차 예약'/>
+                            <ReserveBtn onClick={onClick} context={context} />
                         </div>
                             
                     </div>
