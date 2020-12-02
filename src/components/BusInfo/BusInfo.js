@@ -7,7 +7,7 @@ import Popup from '@enact/moonstone/Popup';
 
 const BusInfo = ({
     driver_name,
-    busRouteInfoItem,
+    busRouteInfoItem,anonymous,
     driver_score, 
     vehicle_num, 
     routeName, 
@@ -76,22 +76,18 @@ const BusInfo = ({
                             onClick={onClick}
                             disabled={ disabled }
                             >
+                                
                                 평가하기
                             </Button>
-                            {/* <div>
-                            <Popup onClose={anonymous} onHide={anonymous} onShow={anonymous}>
-                            <div>
-                            Hello Popup
-                            </div>
-                            </Popup>
-                            <BodyText centered>
-                            Use KNOBS to interact with Popup.
-                            </BodyText>
-                            </div> */}
+                            
                         </div>
                         </div>
                     </div>
-                    
+                    <Popup open showCloseButton>
+                                <div>
+                                Hello Popup
+                                </div>
+                                </Popup>
                     <hr style={{marginBlockStart:'0'}}/>
                     
                     <div className="bus_info">

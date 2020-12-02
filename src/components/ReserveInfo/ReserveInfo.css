@@ -38,7 +38,7 @@ html, body {
     flex-direction: row;
 }
 .left span{
-    font-size: 25px;
+    font-size: 22.5px;
     margin: 10px;
     flex: 1;
 }
@@ -60,10 +60,11 @@ html, body {
 .right h1 {
     text-align: center;
     margin: 30px 0 50px;
+    font-size: 1.6em;
 }
 
 .right p {
-    font-size: 27px;
+    font-size: 1.7em;
     margin: 15px 40px 20px;
 }
 .right #reserve_btn {

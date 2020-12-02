@@ -101,7 +101,7 @@ import React, { Component, Fragment } from 'react';
         }
         
         componentDidMount() {
-            const { passengerActions} = this.props;
+            const { passengerActions,busRouteStationList} = this.props;
             // const { passengerActions,routeId} = this.props;
             const routeId =200000279;
             passengerActions.getBusRouteStationList(routeId);
@@ -113,12 +113,10 @@ import React, { Component, Fragment } from 'react';
                 }
                 map = new kakao.maps.Map(el, mapOption)
             })
+            this._createBusRoute(busRouteStationList, map, true) 
         }
         
-        componentDidUpdate() {
-            const { busRouteStationList} = this.props;
-            this._createBusRoute(busRouteStationList, map, true) 
-            
+        componentDidUpdate() {  
         }
         render() {
             const {

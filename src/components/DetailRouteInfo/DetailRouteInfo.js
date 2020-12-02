@@ -49,20 +49,21 @@ const DetailRouteInfo = ({anonymous,stationName,long,lat,busArrivalList}) => {
                         borderBottom: '1px solid #aaa'
                     }}>
                         <div className="table-num" style={{width: 200}}><strong>차량번호</strong></div>
-                        <div className="table-time" style={{width: 240 ,borderRight:0}}><strong>예상도착시간</strong></div>
+                        <div className="table-time" style={{width: 240 ,borderRight:0}}><strong>예상도착시간(분)</strong></div>
                     </div>
                     <div className="table-body">
-                    {/*
-                                    busArrivalList.map((item,idx) =>{
-                                        return(
-                                            <Fragment key={idx}>
-                                                {/* <div className="table-num" style={{width: 200}}>{item.get('')}</div> */}
-                                                {/* <div className="table-num" style={{width: 200}}>{item.get('plateNo1')}</div>
-                                                <div className="table-time" style={{width: 240, borderRight:0}}>{item.get('predictTime1')}</div>
-                                            </Fragment>    
-                                            
-                                                    )})
-                            } */}
+                    {
+                        busArrivalList.map((item,idx) =>{
+                            return(
+                            <Fragment key={idx}>
+                                <div className="table-num" style={{width: 200}}>{item.get('plateNo1')}</div>
+                                <div className="table-time" style={{width: 240, borderRight:0}}>{item.get('predictTime1')} </div>
+                                <div className="table-num" style={{width: 200}}>{item.get('plateNo2')}</div>
+                                <div className="table-time" style={{width: 240, borderRight:0}}>{item.get('predictTime2')} </div>
+                            </Fragment>    
+                            )
+                        })
+                    }
                     
                      {/*<Fragment>
                         <div className="table-num" style={{width: 200}}>3000</div>
@@ -71,15 +72,7 @@ const DetailRouteInfo = ({anonymous,stationName,long,lat,busArrivalList}) => {
                      <Fragment>
                         <div className="table-num" style={{width: 200}}>23</div>
                         <div className="table-time" style={{width: 240, borderRight:0}}>전전</div>
-                     </Fragment>*/}
-                     <Fragment >
-                                                {/* <div className="table-num" style={{width: 200}}>{item.get('')}</div> */}
-                                                <div className="table-num" style={{width: 200}}>경기12바3456</div>
-                                                <div className="table-time" style={{width: 240, borderRight:0}}>1</div>
-                                                
-                                                <div className="table-num" style={{width: 200}}>2</div>
-                                                <div className="table-time" style={{width: 240, borderRight:0}}>2</div>
-                                            </Fragment>    
+                     </Fragment>*/} 
                     </div>
                 </Scroller>
             </div>

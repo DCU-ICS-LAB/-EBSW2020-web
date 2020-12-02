@@ -8,7 +8,7 @@ import {
     ReserveBtn
   } from "components";
 
-const ReserveInfo = ({color,busRouteStationList,anonymous,station,onChange,onClick,leaveStation,arriveTime}) => {
+const ReserveInfo = ({style,busRouteStationList,anonymous,station,onChange,onClick,leaveStation,arriveTime}) => {
 
     return (
         <div className="ReserveInfo">
@@ -27,36 +27,21 @@ const ReserveInfo = ({color,busRouteStationList,anonymous,station,onChange,onCli
                                             <span> {item.get('stationName')}</span>
                                             <input
                                             type="radio"
-                                            name={item.get('stationName')}
+                                            name="stationName"
                                             value={item.get('stationName')}
                                             
                                             onChange={onChange}
                                             />
-                        </label>
-                        
-                                                )
-                            })
+                                            </label>
+                        )})
                         }
-                        {/* <label>
-                            <span>{station5}</span>
-                            <input
-                            type="radio"
-                            name="station5"
-                            value={station5}
-                            checked={station === station5}
-                            onChange={onChange}
-                            />
-                        </label> */}
                         </Scroller>
                     </div>
                     <div className="right" >
                         <div >
                             <h1>{station}</h1>
-                            {/* <h1>광화문</h1> */}
                             <span><p>남은 정류장 : {leaveStation}</p></span>
                             <span><p>도착 예정 시간 : {arriveTime}</p></span>
-                            {/* <button id="reserve_btn" style={{backgroundColor: color}} onClick={onClick}> <strong>예 약 하 기</strong> </button>     */}
-                            
                             <ReserveBtn onClick={onClick} context='하차 예약'/>
                         </div>
                             

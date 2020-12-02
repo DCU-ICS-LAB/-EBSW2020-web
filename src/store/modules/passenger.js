@@ -137,7 +137,9 @@ export default handleActions({
             return state.set('busRouteStationList', List(data.busRouteStationList.map((item)=>Map({
                     stationName : item.stationName._text,
                     x : item.x._text,
-                    y : item.y._text},
+                    y : item.y._text,
+                    stationId : item.stationId._text,
+                },
                     // districtCd : item.districtCd,
                     // regionName : item.regionName,
                     // stationId : item.stationId,

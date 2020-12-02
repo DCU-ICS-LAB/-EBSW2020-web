@@ -36,7 +36,7 @@ const RouteMap = ({anonymous,onClick,firstName,busRouteStationList,map}) => {
                                     busRouteStationList.map((item,idx) =>{
                                         return(
                                             
-                                            <Link to={`/detailInfo/${item.get('stationName')}/${item.get('x')}/${item.get('y')}`}>
+                                            <Link to={`/detailInfo/${item.get('stationName')}/${item.get('x')}/${item.get('y')}/${item.get('stationId')}`}>
                                                 <li key={idx}>
                                                     {item.get('stationName')}
                                                     {item.get('stationName')==='능실마을21단지.수원여대입구' ? <img src={bus_icon} width={25} height={30} />: ''}

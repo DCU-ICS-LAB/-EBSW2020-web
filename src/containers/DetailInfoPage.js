@@ -16,9 +16,11 @@ class DetailInfoPage extends Component {
     }
     
     componentDidMount() {
-        const { passengerActions} = this.props;
+        const { passengerActions,match} = this.props;
         // const { passengerActions,match,routeId,stationName} = this.props;
-        const stationId =277104476;
+        // const stationId =203000023;
+        const stationId = match.params.stationId;
+        console.log('stationId->',stationId)
         passengerActions.getDetailBusRouteInfo(stationId);
     }
 
