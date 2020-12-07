@@ -3,7 +3,6 @@ import DetailRouteInfo from 'components/DetailRouteInfo/DetailRouteInfo';
 import FooterBox from 'components/FooterBox/FooterBox';
 import ReserveInfo from 'components/ReserveInfo/ReserveInfo';
 import Info from 'components/Info/Info';
-import ExampleModal from 'components/ExampleModal/ExampleModal';
 import Notice from 'components/Notice/Notice';
 import BusInfo from 'components/BusInfo/BusInfo';
 import ReserveBtn from 'components/ReserveBtn/ReserveBtn';
@@ -15,7 +14,6 @@ export {
     FooterBox,
     ReserveInfo,
     Info,
-    ExampleModal,
     Notice,
     ReserveBtn
 }

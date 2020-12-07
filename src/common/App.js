@@ -18,7 +18,7 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/" component={RouteMapPage} />
                     <Route path="/driveInfo" component={BusInfoPage} />
-                    <Route path="/detailInfo" component={DetailInfoPage} />
+                    <Route path="/detailInfo/:stationName/:x/:y/:stationId" component={DetailInfoPage} />
                     <Route path="/reserve" component={ReservationPage} />
                     <Route path="/info" component={InfoPage} />
                     <Route path="/notice" component={NoticePage} />

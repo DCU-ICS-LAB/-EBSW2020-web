@@ -21,17 +21,25 @@ class ReservationPage extends Component {
     _isSelected = () => {
         const { passengerActions, isSelected } = this.props;
         passengerActions.isSelected(!isSelected);
+        console.log('isSelected->',isSelected);
     }
     _selectStation =(e) => {
-        const { passengerActions,station } = this.props;
+        const { passengerActions } = this.props;
         passengerActions.selectStation(e.target.value);
     }
     _reserveStation =() => {
         const { passengerActions,color,station } = this.props;
         passengerActions.reserveStation(station,color);
     }
-    handleEvent= (ev) => {
-        ev.selected = true;
+    constructor(props) {
+        super(props);
+        this.state = {selected: true};
+        this.handleClick = this.handleClick.bind(this);
+      }
+    handleClick() {
+        this.setState(state => ({
+            selected : !state.selected
+        }));
     }
     componentDidMount() {
         const { passengerActions} = this.props;
@@ -40,11 +48,8 @@ class ReservationPage extends Component {
     }
     render() {
         const {
-            select, 
-            onToggle,
-            isSelected,
+            select,
             station,
-            color,
             busRouteStationList
         } = this.props;
 
@@ -55,13 +60,12 @@ class ReservationPage extends Component {
                 leaveStation="5"
                 arriveTime="17:00"
                 busRouteStationList={busRouteStationList}
-                // anoymous={handleEvent}
                 station={station}
                 onChange={this._selectStation}
                 onClick={
-                    this._reserveStation
+                    this._reserveStation,this.handleClick
                 }
-                color = {color}
+                context={this.state.selected ? '하차 예약':'예약 취소'}
                 >
                 </ReserveInfo>
                 <FooterBox select={select} fbSelect={this._fbSelect}/>

@@ -18,11 +18,10 @@ export const getBusRouteStationList = (routeId) => {
             return res;
         })
 }
-
 //특정 정류장 정보 조회
-export const getDetailBusRouteInfo = (stationId,stationName) => {
+export const getDetailBusRouteInfo = (stationId) => {
     
-    const baseURL = `${API_BASE_URL}/passenger/stationInfo/${stationId}/${stationName}`;
+    const baseURL = `${API_BASE_URL}/passenger/stationInfo/${stationId}`;
     console.log("getDetailBusRouteInfo");
     return axios
         .get(baseURL)
@@ -57,13 +56,3 @@ export const getBusRouteInfoItem = (routeId) => {
             return res;
         });
 } 
-
-// export const registerConfirmer = (driver_id) => {
-//     const baseURL = `${API_BASE_URL}/passenger/driver_rating/${driver_id}`;
-//     return axios
-//         .post(baseURL, confirmerInfo)
-//         .then(res => {
-//             console.log(res);
-//             return res;
-//         });
-// } 
